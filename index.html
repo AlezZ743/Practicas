@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+<nav class="navbar reveal delay-1">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="resources/Recurso-3logotipobatages (1).svg" alt="Batages Logo">
+    </div>
+    
+    <ul class="nav-links">
+      <li class="dropdown">
+        <a href="#" class="nav-item">Funcionalidades <span class="arrow">▾</span></a>
+        <!-- Contenedor para el efecto persiana -->
+        <div class="dropdown-wrapper">
+          <ul class="dropdown-content">
+            <li><a href="#">Control horario</a></li>
+            <li><a href="#">CRM</a></li>
+            <li><a href="#">Gestión de tareas</a></li>
+            <li><a href="#">Partes de trabajo</a></li>
+            <li><a href="#">Programa de Facturación</a></li>
+            <li><a href="#">Reuniones con IA</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a href="#" class="nav-item">Partners</a></li>
+      <li><a href="#" class="nav-item">Blog</a></li>
+      <li><a href="#" class="nav-item">Precios</a></li>
+      <li><a href="#" class="nav-item">Videos explicativos</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="#" class="btn-reg">Regístrate</a>
+    </div>
+  </div>
+</nav>
+
+  <!-- ---------------------------------------------------- Text heroes ---------------------------------------------------------------- -->
+
+<section class="hero reveal delay-1">
+  <div class="hero-content">
+    <h1>Una herramienta, <span style="color: var(--orange);">todas las soluciones</span></h1>
+    <p>Batages es el software de gestión en la nube que tiene todo lo que necesitas para gestionar tu empresa.</p>
+  </div>
+</section>
+
+<section class="mini-hero reveal delay-3">
+  <div class="mini-hero-container">
+    <div class="title-group">
+      <h2 class="mini-title">Más fácil,</h2>
+      <h2 class="mini-title">Más rápido,</h2>
+      <h2 class="mini-title">Más eficiente</h2>
+    </div>
+    <p class="mini-subtitle">Batages es el software de gestión en la nube que tiene todo lo que necesitas para gestionar tu empresa.</p>
+  </div>
+</section>
+
+  <!-- ---------------------------------------------------- Cartas ---------------------------------------------------------------- -->
+
+<section class="features-tabs reveal delay-4">
+  <!-- Botones de navegación -->
+  <div class="tabs-container">
+    <button class="tab-btn active" data-id="control">Control horario</button>
+    <button class="tab-btn" data-id="facturacion">Facturación</button>
+    <button class="tab-btn" data-id="crm">CRM</button>
+    <button class="tab-btn" data-id="tareas">Tareas</button>
+    <button class="tab-btn" data-id="partes">Partes de trabajo</button>
+    <button class="tab-btn" data-id="ia">Reuniones con IA</button>
+    <button class="tab-btn" data-id="kpi">KPIs</button>
+  </div>
+
+  <div class="tabs-content">
+    
+    <!-- Tab 1: Control Horario -->
+    <div class="content active" id="control">
+      <div class="feature-grid">
+        <div class="feature-image">
+          <img src="resources/imagen-control.jpg" alt="Control horario">
+        </div>
+<div class="feature-text">
+  <h2>Control horario de trabajadores</h2>
+  
+<div class="stacked-container">
+        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
+          
+          <div class="click-indicator">
+            <span class="icon">👆</span>
+          </div>
+          
+          <h3>Auditoría inteligente</h3>
+          <p>Consulta toda la información necesaria sobre tus empleados en tiempo real.</p>
+        </div>
+
+        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
+          <h3>Registro de jornada laboral</h3>
+          <p>Registra la jornada laboral de los trabajadores de forma sencilla desde cualquier dispositivo.</p>
+        </div>
+
+        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
+          <h3>Notificaciones para fichar</h3>
+          <p>No te olvides de comenzar, ni cerrar tu jornada.</p>
+        </div>
+
+        <div class="info-box stack-card card-4" onclick="rotateCards(this)">
+          <h3>Fichaje con geolocalización</h3>
+          <p>Permite registrar la jornada laboral desde el móvil con geolocalización.</p>
+        </div>
+      </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Facturación -->
+    <div class="content" id="facturacion">
+      <div class="feature-grid">
+        <div class="feature-image">
+          <img src="resources/imagen-facturacion.jpg" alt="Facturación">
+        </div>
+<div class="feature-text">
+  <h2>Programa de facturación</h2>
+  
+<div class="stacked-container">
+        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
+          
+          <div class="click-indicator">
+            <span class="icon">👆</span>
+          </div>
+          
+          <h3>Facturación con Verifactu</h3>
+          <p>Crea y gestiona facturas de forma rápida, cumpliendo con los requisitos de Verifactu.</p>
+        </div>
+
+        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
+          <h3>Escáner de facturas</h3>
+          <p>Escanea tus facturas y crea los movimientos en segundos</p>
+        </div>
+
+        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
+          <h3>Gestión de facturación</h3>
+          <p>En segundos, todo en un mismo lugar</p>
+        </div>
+      </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Tab 3: CRM -->
+    <div class="content" id="crm">
+      <div class="feature-grid">
+        <div class="feature-image">
+          <img src="resources/imagen-crm.jpg" alt="CRM">
+        </div>
+<div class="feature-text">
+  <h2>CRM para empresas</h2>
+  
+<div class="stacked-container">
+        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
+          
+          <div class="click-indicator">
+            <span class="icon">👆</span>
+          </div>
+          
+          <h3>Ayuda inteligente</h3>
+          <p>Haz un resumen de todos los comentarios realizados, consulta rápidamente cualquier información.</p>
+        </div>
+
+        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
+          <h3>Gestión de clientes</h3>
+          <p>Organiza toda la información de tus clientes en un solo lugar.</p>
+        </div>
+
+        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
+          <h3>Notificaciones automáticas</h3>
+          <p>Recibe avisos para realizar seguimientos y no perder oportunidades de negocio.</p>
+        </div>
+
+        <div class="info-box stack-card card-4" onclick="rotateCards(this)">
+          <h3>Seguimiento de oportunidades</h3>
+          <p>Controla el estado de cada oportunidad comercial y mejora la gestión de ventas.</p>
+        </div>
+
+      </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Tareas -->
+    <div class="content" id="tareas">
+      <div class="feature-grid">
+        <div class="feature-image">
+          <img src="resources/imagen-tareas.jpg" alt="Tareas">
+        </div>
+<div class="feature-text">
+  <h2>Gestión de tareas para empresas</h2>
+  
+<div class="stacked-container">
+        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
+          
+          <div class="click-indicator">
+            <span class="icon">👆</span>
+          </div>
+          
+          <h3>Crear tareas con IA</h3>
+          <p>Crar tareas grabando un audio y la IA la transformará en una tarea</p>
+        </div>
+
+        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
+          <h3>Asignación de tareas al equipo</h3>
+          <p>Asigna tareas a cada miembro del equipo.</p>
+        </div>
+
+        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
+          <h3>Checklist de tareas</h3>
+          <p>Crea checklist de tareas para organizar procesos.</p>
+        </div>
+      </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Tab 5: Partes de trabajo -->
+    <div class="content" id="partes">
+      <div class="feature-grid">
+        <div class="feature-image">
+          <img src="resources/imagen-partes.jpg" alt="Partes de trabajo">
+        </div>
+<div class="feature-text">
+  <h2>Gestión de partes de trabajo</h2>
+  
+<div class="stacked-container">
+        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
+          
+          <div class="click-indicator">
+            <span class="icon">👆</span>
+          </div>
+          
+          <h3>Ayuda inteligente</h3>
+          <p>Crea automáticamente partes de trabajo con un simple audio, comentarios dentro del parte y sube fácilmente documentación</p>
+        </div>
+
+        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
+          <h3>Registro de trabajos realizados</h3>
+          <p>Los operarios pueden registrar el trabajo realizado directamente desde el móvil</p>
+        </div>
+
+        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
+          <h3>Firma digital del cliente</h3>
+          <p>Permite recoger la firma del cliente una vez finalizado el trabajo.</p>
+        </div>
+      </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Tab 6: Reuniones con IA -->
+    <div class="content" id="ia">
+      <div class="feature-grid">
+        <div class="feature-image">
+          <img src="resources/imagen-ia.jpg" alt="Reuniones con IA">
+        </div>
+<div class="feature-text">
+  <h2>Reuniones  con IA</h2>
+  
+<div class="stacked-container">
+        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
+          
+          <div class="click-indicator">
+            <span class="icon">👆</span>
+          </div>
+          
+          <h3>Ayuda inteligente</h3>
+          <p>Consulta toda la información necesaria sobre tus reuniones.</p>
+        </div>
+
+        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
+          <h3>Transcripción automática de reuniones</h3>
+          <p>La IA transcribe automáticamente cada reunión para poder revisarlas cuando sea necesario</p>
+        </div>
+
+        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
+          <h3>Resumen automático de reuniones</h3>
+          <p>Obtén un resumen de los puntos clave tratados durante la reunión.</p>
+        </div>
+      </div>
+</div>
+      </div>
+    </div>
+
+    <!-- Tab 7: KPIs -->
+    <div class="content" id="kpi">
+      <div class="feature-grid">
+        <div class="feature-image">
+          <img src="resources/imagen-kpi.jpg" alt="KPIs">
+        </div>
+<div class="feature-text">
+  <h2>KPIs y métricas empresariales</h2>
+  
+<div class="stacked-container">
+        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
+          
+          <div class="click-indicator">
+            <span class="icon">👆</span>
+          </div>
+          
+          <h3>Configuración a medida</h3>
+          <p>Consulta en un solo panel las métricas más importantes para tu empresa: ingresos, facturación, clientes activos y rendimiento del negocio, lo que tú desees medir.</p>
+        </div>
+
+        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
+          <h3>Gráficas predictivas</h3>
+          <p>Analiza la evolución de tu empresa con gráficos y métricas que te ayudan a comprender qué áreas están funcionando mejor.</p>
+        </div>
+
+        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
+          <h3>Aviso automatico del registro de datos</h3>
+          <p>Define los indicadores clave (KPIs) que realmente importan para tu empresa y monitoriza su evolución en tiempo real.</p>
+        </div>
+      </div>
+</div>
+      </div>
+    </div>
+
+  </div> 
+</section>
+
+<!-- ---------------------------------------------- FaQ -------------------------------------------------------------------------------- -->
+
+<section class="faq-title">
+  <h2>
+    Preguntas frecuentes
+  </h2>
+  <hr>
+</section>
+
+
+<section class="faq-container">
+
+  <div class="faq-image">
+    <img src="resources/faq.jpg" alt="Soporte">
+  </div>
+
+  <div class="faq-content">
+    <div class="faq-item">
+      <button class="faq-question">¿Qué es Batages?</button>
+      <div class="faq-answer">
+        <p>Batages es un software de gestión empresarial que permite gestionar facturación online, clientes, control horario, partes de trabajo y reuniones con inteligencia artificial desde una sola plataforma.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">¿Qué exige la normativa de control horario?</button>
+      <div class="faq-answer">
+        <p>La normativa española exige que las empresas registren la jornada laboral de sus empleados, incluyendo el inicio, fin y pausas de la jornada. 
+          <br><br>
+          Además, obliga a conservar estos registros durante un período mínimo de 4 años, de manera que estén disponibles para inspecciones y para cumplir con las leyes laborales.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">¿El control horario es compatible con todos mis dispositivos?</button>
+      <div class="faq-answer">
+        <p>Batages Control Horario está preparado para adaptarse a dispositivos iOS, Android y a través de la web.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">¿Se puede usar desde el móvil?</button>
+      <div class="faq-answer">
+        <p>Sí, Batages puede utilizarse desde cualquier dispositivo con conexión a internet.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="grid-imagenes">
+  <div class="img-card">
+    <img class="enisa" src="resources/LOGO-STARTUP.png" alt="1">
+  </div>
+  <div class="img-card">
+    <img src="resources/Mail-Attachment.png" alt="2">
+  </div>
+  <div class="img-card verifactu">
+    <img class="verifactu" src="resources/verifactu-01-1024x304.png" alt="3">
+  </div>
+</section>
+
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <!-- Columna 1: Logo y Descargas -->
+    <div class="footer-column branding">
+      <img src="resources/Recurso-3logotipobatages (1).svg" alt="Batages Logo" class="footer-logo">
+      <p>Control horario<br>y mucho más para tu empresa</p>
+      <ul class="download-links">
+        <li><a href="#"> Descarga para iOS</a></li>
+        <li><a href="#">▶ Descarga en Google Play</a></li>
+        <li><a href="#">👥 Nuestro equipo</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 2: Funcionalidades -->
+    <div class="footer-column">
+      <h3>Funcionalidades</h3>
+      <ul class="footer-links">
+        <li><a href="#">🕒 Control horario</a></li>
+        <li><a href="#">💰 Facturación</a></li>
+        <li><a href="#">📢 CRM</a></li>
+        <li><a href="#">📅 Gestión de tareas</a></li>
+        <li><a href="#">📄 Partes de trabajo</a></li>
+        <li><a href="#">🤖 Reuniones con IA</a></li>
+      </ul>
+    </div>
+
+    <!-- Columna 3: Legal -->
+    <div class="footer-column">
+      <h3>Legal</h3>
+      <ul class="footer-links">
+        <li><a href="#">Aviso legal</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Barra inferior -->
+  <div class="footer-bottom">
+    <div class="bottom-content">
+      <span>© 2026. Todos los derechos reservados. Batatech S.L.</span>
+      <span class="bottom-logo">BATATECH</span>
+    </div>
+  </div>
+</footer>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
