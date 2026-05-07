@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Batages Prueba</title>
     <link rel="stylesheet" href="style/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 <body>
@@ -18,7 +25,7 @@
     <ul class="nav-links">
       <li class="dropdown">
         <a href="#" class="nav-item">Funcionalidades <span class="arrow">▾</span></a>
-        <!-- Contenedor para el efecto persiana -->
+
         <div class="dropdown-wrapper">
           <ul class="dropdown-content">
             <li><a href="#">Control horario</a></li>
@@ -42,11 +49,15 @@
   </div>
 </nav>
 
+
   <!-- ---------------------------------------------------- Text heroes ---------------------------------------------------------------- -->
 
+
 <section class="hero reveal delay-1">
+  <div id="blob"></div>
+
   <div class="hero-content">
-    <h1>Una herramienta, <span style="color: var(--orange);">todas las soluciones</span></h1>
+    <h1>Una herramienta,<br><span style="color: var(--orange);">todas las soluciones</span></h1>
     <p>Batages es el software de gestión en la nube que tiene todo lo que necesitas para gestionar tu empresa.</p>
   </div>
 </section>
@@ -62,23 +73,25 @@
   </div>
 </section>
 
+
   <!-- ---------------------------------------------------- Cartas ---------------------------------------------------------------- -->
 
+
 <section class="features-tabs reveal delay-4">
-  <!-- Botones de navegación -->
-  <div class="tabs-container">
-    <button class="tab-btn active" data-id="control">Control horario</button>
-    <button class="tab-btn" data-id="facturacion">Facturación</button>
-    <button class="tab-btn" data-id="crm">CRM</button>
-    <button class="tab-btn" data-id="tareas">Tareas</button>
-    <button class="tab-btn" data-id="partes">Partes de trabajo</button>
-    <button class="tab-btn" data-id="ia">Reuniones con IA</button>
-    <button class="tab-btn" data-id="kpi">KPIs</button>
-  </div>
+
+<div class="tabs-container">
+  <button class="tab-btn active" data-id="control"><i class="fa-solid fa-clock"></i> Control horario</button>
+  <button class="tab-btn" data-id="facturacion"><i class="fa-solid fa-file-invoice-dollar"></i> Facturación</button>
+  <button class="tab-btn" data-id="crm"><i class="fa-solid fa-users"></i> CRM</button>
+  <button class="tab-btn" data-id="tareas"><i class="fa-solid fa-list-check"></i> Tareas</button>
+  <button class="tab-btn" data-id="partes"><i class="fa-solid fa-clipboard-list"></i> Partes de trabajo</button>
+  <button class="tab-btn" data-id="ia"><i class="fa-solid fa-robot"></i> Reuniones con IA</button>
+  <button class="tab-btn" data-id="kpi"><i class="fa-solid fa-chart-line"></i> KPIs</button>
+</div>
 
   <div class="tabs-content">
     
-    <!-- Tab 1: Control Horario -->
+
     <div class="content active" id="control">
       <div class="feature-grid">
         <div class="feature-image">
@@ -86,8 +99,7 @@
         </div>
 <div class="feature-text">
   <h2>Control horario de trabajadores</h2>
-  
-<div class="stacked-container">
+      <div class="stacked-container">
         <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
           
           <div class="click-indicator">
@@ -117,7 +129,7 @@
       </div>
     </div>
 
-    <!-- Tab 2: Facturación -->
+
     <div class="content" id="facturacion">
       <div class="feature-grid">
         <div class="feature-image">
@@ -151,7 +163,6 @@
       </div>
     </div>
 
-    <!-- Tab 3: CRM -->
     <div class="content" id="crm">
       <div class="feature-grid">
         <div class="feature-image">
@@ -191,7 +202,7 @@
       </div>
     </div>
 
-    <!-- Tab 4: Tareas -->
+
     <div class="content" id="tareas">
       <div class="feature-grid">
         <div class="feature-image">
@@ -225,7 +236,6 @@
       </div>
     </div>
 
-    <!-- Tab 5: Partes de trabajo -->
     <div class="content" id="partes">
       <div class="feature-grid">
         <div class="feature-image">
@@ -259,14 +269,13 @@
       </div>
     </div>
 
-    <!-- Tab 6: Reuniones con IA -->
     <div class="content" id="ia">
       <div class="feature-grid">
         <div class="feature-image">
           <img src="resources/imagen-ia.jpg" alt="Reuniones con IA">
         </div>
 <div class="feature-text">
-  <h2>Reuniones  con IA</h2>
+  <h2>Reuniones con IA</h2>
   
 <div class="stacked-container">
         <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
@@ -293,7 +302,6 @@
       </div>
     </div>
 
-    <!-- Tab 7: KPIs -->
     <div class="content" id="kpi">
       <div class="feature-grid">
         <div class="feature-image">
@@ -302,7 +310,7 @@
 <div class="feature-text">
   <h2>KPIs y métricas empresariales</h2>
   
-<div class="stacked-container">
+    <div class="stacked-container">
         <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
           
           <div class="click-indicator">
@@ -323,21 +331,22 @@
           <p>Define los indicadores clave (KPIs) que realmente importan para tu empresa y monitoriza su evolución en tiempo real.</p>
         </div>
       </div>
-</div>
+    </div>
       </div>
     </div>
 
   </div> 
 </section>
 
-<!-- ---------------------------------------------- FaQ -------------------------------------------------------------------------------- -->
 
-<section class="faq-title">
-  <h2>
-    Preguntas frecuentes
-  </h2>
-  <hr>
-</section>
+<!-- ------------------------------------------------------- FaQ -------------------------------------------------------------------------------- -->
+
+
+<div class="news-header-centered">
+  <span class="subtitle">FaQ</span>
+  <h2>Preguntas Frecuentes</h2>
+  <div class="header-line"></div>
+</div>
 
 
 <section class="faq-container">
@@ -380,6 +389,70 @@
   </div>
 </section>
 
+
+
+<div class="news-header-centered">
+  <span class="subtitle">Actualidad</span>
+  <h2>Noticias</h2>
+  <div class="header-line"></div>
+</div>
+
+<section class="news-slider">
+  <div class="news-container">
+    <div class="news-track">
+
+      <div class="news-card">
+        <div class="news-image" style="background-image: url('resources/n1.jpg');"></div>
+        <div class="news-info">
+          <span class="news-tag">Facturación</span>
+          <h3>Generar factura electrónica gratis: cómo hacerlo paso a paso en 2026</h3>
+          <p>Aprende cómo generar factura electrónica gratis paso a paso, qué requisitos debe cumplir y cómo hacerlo fácilmente con un programa de facturación.</p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-image" style="background-image: url('resources/n2.png');"></div>
+        <div class="news-info">
+          <span class="news-tag">Empresa</span>
+          <h3>Digitalizar la gestión de ausencias en empresas</h3>
+          <p>Descubre cómo digitalizar la gestión de ausencias en empresas, reducir errores y mejorar la organización del equipo con herramientas digitales.</p>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-image" style="background-image: url('resources/n3.jpg');"></div>
+        <div class="news-info">
+          <span class="news-tag">Empresa</span>
+          <h3>Bienvenida de la Atalaya a Batages</h3>
+          <p>Batages, anteriormente conocida como GestionPyme, ha sido seleccionada como una de las startups del programa La Atalaya de Extremadura Open Future.</p>
+        </div>
+      </div>
+      
+      <div class="news-card">
+        <div class="news-image" style="background-image: url('resources/n4.jpg');"></div>
+        <div class="news-info">
+          <span class="news-tag">Empresa</span>
+          <h3>Registro horario en teletrabajo: cómo cumplir la normativa y gestionar a tu equipo</h3>
+          <p>Descubre cómo gestionar el registro horario en teletrabajo, qué exige la ley y cómo pueden cumplir las empresas con la normativa.</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <button class="nav-btn prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="nav-btn next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+
+    <div class="news-dots" id="dots"></div>
+  </div>
+  
+  <div class="view-all-container">
+    <a href="#" class="view-all">Ver todas las noticias <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</section>
+
+
+<!-- ---------------------------------------------- Footer -------------------------------------------------------------------------------- -->
+
 <section class="grid-imagenes">
   <div class="img-card">
     <img class="enisa" src="resources/LOGO-STARTUP.png" alt="1">
@@ -395,7 +468,6 @@
 
 <footer class="main-footer">
   <div class="footer-container">
-    <!-- Columna 1: Logo y Descargas -->
     <div class="footer-column branding">
       <img src="resources/Recurso-3logotipobatages (1).svg" alt="Batages Logo" class="footer-logo">
       <p>Control horario<br>y mucho más para tu empresa</p>
@@ -406,20 +478,18 @@
       </ul>
     </div>
 
-    <!-- Columna 2: Funcionalidades -->
     <div class="footer-column">
       <h3>Funcionalidades</h3>
       <ul class="footer-links">
-        <li><a href="#">🕒 Control horario</a></li>
-        <li><a href="#">💰 Facturación</a></li>
-        <li><a href="#">📢 CRM</a></li>
-        <li><a href="#">📅 Gestión de tareas</a></li>
-        <li><a href="#">📄 Partes de trabajo</a></li>
-        <li><a href="#">🤖 Reuniones con IA</a></li>
+        <li><a href="#"><i class="fa-solid fa-clock"></i> Control horario</a></li>
+        <li><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Facturación</a></li>
+        <li><a href="#"><i class="fa-solid fa-users"></i> CRM</a></li>
+        <li><a href="#"><i class="fa-solid fa-list-check"></i> Gestión de tareas</a></li>
+        <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Partes de trabajo</a></li>
+        <li><a href="#"><i class="fa-solid fa-robot"></i> Reuniones con IA</a></li>
       </ul>
     </div>
 
-    <!-- Columna 3: Legal -->
     <div class="footer-column">
       <h3>Legal</h3>
       <ul class="footer-links">
@@ -430,7 +500,6 @@
     </div>
   </div>
 
-  <!-- Barra inferior -->
   <div class="footer-bottom">
     <div class="bottom-content">
       <span>© 2026. Todos los derechos reservados. Batatech S.L.</span>
