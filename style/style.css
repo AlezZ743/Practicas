@@ -8,17 +8,16 @@
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Asap", sans-serif;
 }
 
 .navbar {
   background-color: var(--dark);
   padding: 15px 40px;
   color: var(--white);
-  /* --- ESTO LA HACE STICKY --- */
   position: sticky;
   top: 0;
-  z-index: 9999; /* Asegura que quede por encima de todo el contenido */
+  z-index: 9999; 
 }
 
 .nav-container {
@@ -29,11 +28,11 @@ body {
 }
 
 .logo {
-  margin-right: 50px; /* Ajusta este número para separar las opciones del logo a tu gusto */
+  margin-right: 50px; 
 }
 
 .nav-actions {
-  margin-left: auto; /* Esto empuja el botón de registro al final de la derecha */
+  margin-left: auto; 
 }
 
 .logo img {
@@ -77,16 +76,12 @@ body {
 
 .btn-reg:hover {
   opacity: 0.9;
-  /* Opcional: usar el naranja del logo al pasar el ratón */
-  /* background-color: var(--orange); */
 }
 
-/* Contenedor del dropdown */
 .dropdown {
   position: relative;
 }
 
-/* Estilo del menú desplegable (Blanco como en la imagen) */
 .dropdown-content {
   position: absolute;
   top: 100%;
@@ -94,12 +89,10 @@ body {
   background-color: #ffffff;
   min-width: 220px;
   box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  border-radius: 0 0 15px 15px; /* Bordes redondeados abajo */
+  border-radius: 0 0 15px 15px; 
   padding: 10px 0;
   list-style: none;
   margin-top: 15px;
-  
-  /* Estado inicial para la transición */
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -114,7 +107,6 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-  
   transition: all 0.3s ease-in-out; 
 }
 
@@ -123,14 +115,12 @@ body {
   color: #ff7c62 !important;
 }
 
-/* Mostrar al pasar el ratón por "Funcionalidades" */
 .dropdown:hover .dropdown-content {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* Pequeño truco para que no se cierre al mover el ratón hacia abajo */
 .dropdown::after {
   content: "";
   position: absolute;
@@ -140,20 +130,40 @@ body {
   height: 20px;
 }
 
+
 /*----------------------------------------------------------HERO--------------------------------------------------------------*/
 
+
 .hero {
+  position: relative; 
+  overflow: hidden;    
   background-color: var(--dark);
-  height: 50vh; 
+  min-height: 50vh; 
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
+}
 
+#blob {
+  background-color: var(--cyan);
+  height: 300px;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(to right, var(--cyan), var(--orange));
+  filter: blur(60px);
+  opacity: 0.25;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-content {
+  position: relative;
+  z-index: 2; 
   max-width: 800px;
 }
 
@@ -173,6 +183,7 @@ body {
 
 
 /*---------------------------------------------------MINI-HERO---------------------------------------------------------------*/
+
 
 .mini-hero {
   padding: 30px 20px 30px 20px;
@@ -208,10 +219,9 @@ body {
 }
 
 
-
 /*----------------------------------------------------GALERIA--------------------------------------------------------------*/
 
-/* Ajuste para que la galería de botones no quede muy pegada */
+
 .features-tabs {
   margin-top: 100px !important;
 }
@@ -236,14 +246,26 @@ body {
 }
 
 .tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
   border: none;
-  padding: 12px 25px;
   border-radius: 50px;
   background-color: #f0f2f5;
   color: #050f19;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.tab-btn i {
+  font-size: 1.1rem;
+  color: var(--orange);
+}
+
+.tab-btn.active i {
+  color: white;
 }
 
 .tab-btn:hover {
@@ -271,21 +293,12 @@ body {
 
 .feature-image img {
   width: 100%;
-  
-  /* 1. Forzamos una relación de aspecto (ejemplo 16:9) */
-  aspect-ratio: 16 / 9; 
-  
-  /* 2. Cubre el espacio sin deformarse */
+  aspect-ratio: 16 / 9;  
   object-fit: cover; 
-  
-  /* 3. Asegura que el foco esté en el centro de la imagen */
   object-position: center; 
-  
   border-radius: 20px;
   display: block;
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  
-  /* Animación que ya tenías */
   animation: slideIn 0.5s ease forwards;
 }
 
@@ -293,7 +306,6 @@ body {
   from { opacity: 0; transform: translateX(-20px); }
   to { opacity: 1; transform: translateX(0); }
 }
-
 
 .feature-grid {
   display: grid;
@@ -327,11 +339,13 @@ body {
   border: 2px solid var(--cyan);
 }
 
+
 /*------------------------------------Info stackeada---------------------------------------------*/
+
 
 .stacked-info-container {
   position: relative;
-  height: 200px; /* Ajusta según el contenido */
+  height: 200px;
   margin-top: 30px;
 }
 
@@ -348,14 +362,12 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
-/* La caja activa (la que se ve delante) */
 .info-box.stacked.active {
   opacity: 1;
   transform: translateY(0) scale(1);
   z-index: 10;
 }
 
-/* La caja que está justo debajo (pista visual) */
 .info-box.stacked.next {
   opacity: 0.6;
   transform: translateY(10px) scale(0.98);
@@ -374,14 +386,14 @@ body {
 
 .stacked-container {
   position: relative;
-  height: 300px; /* Altura suficiente para ver las cartas asomando */
+  height: 300px; 
   margin-top: 40px;
 }
 
 .stack-card {
   position: absolute;
   width: 100%;
-  height: 180px; /* Altura fija para todas */
+  height: 180px;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -397,7 +409,6 @@ body {
   margin-top: 10px;
 }
 
-/* Carta al frente */
 .stack-card.active {
   z-index: 3;
   transform: translateY(0) scale(1);
@@ -405,28 +416,26 @@ body {
   user-select: none;
 }
 
-/* Segunda carta (asoma por debajo) */
 .stack-card:not(.active):nth-child(2) {
   z-index: 2;
   transform: translateY(15px) scale(0.96);
   opacity: 0.8;
 }
 
-/* Tercera carta (asoma más abajo) */
 .stack-card:not(.active):nth-child(3) {
   z-index: 1;
   transform: translateY(30px) scale(0.92);
   opacity: 0.6;
 }
 
-/* Al pasar el ratón, la carta activa se levanta un poco */
 .stack-card.active:hover {
   transform: translateY(-5px) scale(1.01);
 }
 
+
 /*----------------------------------------Indicador click-----------------------------------------------------*/
 
-/* Contenedor del indicador */
+
 .click-indicator {
   position: absolute;
   top: 15px;
@@ -442,13 +451,10 @@ body {
   font-size: 1.2rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none; /* Para que no interfiera con el clic en la carta */
-  
-  /* Animación de pulso */
+  pointer-events: none; 
   animation: pulse-hint 2s infinite;
 }
 
-/* Clase para ocultarlo */
 .click-indicator.fade-out {
   opacity: 0;
   transform: scale(0.5);
@@ -460,7 +466,9 @@ body {
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 188, 212, 0); }
 }
 
+
 /*--------------------------------------------------------------------------------FaQ-----------------------------------------------------------------------------*/
+
 
 hr {
   width: 70%;
@@ -471,6 +479,7 @@ hr {
   color: var(--dark);
   text-align: center;
   margin-top: 8%;
+  font-family: Helvetica, sans-serif;
 }
 
 
@@ -483,22 +492,20 @@ hr {
   font-family: sans-serif;
 }
 
-/* El contenedor de la imagen decide el tamaño real */
 .faq-image {
-  flex: 0 0 40%; /* Ajusta este % para hacer la sección de la imagen más pequeña */
+  flex: 0 0 40%;
   display: flex;
   justify-content: center;
 }
 
 .faq-image img {
-  width: 100%;    /* Ocupa todo el 40% del contenedor padre */
-  height: auto;   /* Mantiene la proporción */
-  max-width: 450px; /* Evita que crezca demasiado en pantallas grandes */
+  width: 100%; 
+  height: auto;  
+  max-width: 450px; 
   border-radius: 8px;
   object-fit: cover;
 }
 
-/* El contenedor del texto se expande para llenar el resto */
 .faq-content {
   flex: 1;
 }
@@ -519,16 +526,15 @@ hr {
   font-weight: bold;
   cursor: pointer;
   text-align: left;
+  color: var(--dark);
 }
 
-/* Símbolo + por defecto */
 .faq-question::after {
   content: "+";
   font-size: 1.5rem;
   transition: color 0.3s;
 }
 
-/* Estado activo: cambia a - y color cyan */
 .faq-item.active .faq-question {
   color: var(--cyan);
 }
@@ -555,19 +561,165 @@ hr {
 }
 
 
+/*----------------------------------------------------------------Noticias-------------------------------------------------------------------------------------------*/
+
+
+.news-header-centered {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 60px;
+}
+
+.news-header-centered .subtitle {
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.news-header-centered h2 {
+  font-size: 3rem;
+  color: var(--bg-dark);
+  margin: 10px 0;
+  font-weight: 800;
+}
+
+.news-header-centered h2 span {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--bg-dark);
+}
+
+.header-line {
+  width: 50px;
+  height: 4px;
+  background: var(--cyan);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.news-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.news-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.news-card {
+  min-width: 100%;
+  height: 450px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.news-image {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.news-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; width: 100%; height: 70%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  z-index: 2;
+}
+
+.news-info {
+  position: relative;
+  z-index: 3;
+  padding: 40px;
+  color: white;
+  width: 100%;
+}
+
+.news-tag {
+  background: var(--cyan);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.news-info h3 { 
+  font-size: 1.8rem; 
+  margin: 10px 0; 
+}
+
+.view-all-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.view-all {
+  text-decoration: none;
+  color: #718096;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.view-all:hover { color: var(--cyan); }
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); 
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: var(--cyan);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+.nav-btn i {
+  font-size: 1.2rem;
+}
 
 
 /*---------------------------------------------------------------------Footer-------------------------------------------------------------------------------*/
 
+
 .grid-imagenes {
   display: flex;
-  justify-content: center; /* Centrado horizontal */
-  align-items: center;     /* Centrado vertical */
+  justify-content: center;
+  align-items: center; 
   gap: 20px;
   padding: 50px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 400px;       /* Altura mínima para notar el centrado vertical */
+  min-height: 400px;  
 }
 
 .img-card {
@@ -598,7 +750,6 @@ hr {
   display: block;
 }
 
-/* Ajuste para móviles */
 @media (max-width: 768px) {
   .grid-imagenes {
     flex-direction: column;
@@ -610,7 +761,7 @@ hr {
 }
 
 .main-footer {
-  background-color: var(--dark); /* Azul muy oscuro casi negro */
+  background-color: var(--dark);
   color: #ffffff;
   padding: 60px 0 20px 0;
   font-family: sans-serif;
@@ -669,7 +820,6 @@ hr {
   color: var(--cyan);
 }
 
-/* Barra inferior */
 .footer-bottom {
   margin-top: 50px;
   border-top: 1px solid #333;
@@ -693,7 +843,6 @@ hr {
   color: #eee;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -717,13 +866,11 @@ hr {
   }
 }
 
-/* Clase base para aplicar a los elementos */
 .reveal {
-  opacity: 0; /* Empiezan invisibles */
+  opacity: 0; 
   animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Retrasos personalizados */
 .delay-1 { animation-delay: 0.1s; }
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
