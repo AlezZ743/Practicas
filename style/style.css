@@ -1,31 +1,795 @@
 :root {
-    --cyan: #00b8b8;
-    --orange: #ff7c62;
-    --dark: #0f172a;
-    --notsodark: #1e293b;
-    --white: #ffffff;
+  --dark: #050f19;
+  --cyan: #00b8b8;
+  --orange: #ff7c62;
+  --white: #ffffff;
+  --notsodark: #2a3444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
 }
 
 body {
-    background-color: var(--dark);
-    color: var(--white);
-    font-family: sans-serif;
+    background-color: #050f19; /* Tu color base */
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden; /* Corta cualquier cosa que sobresalga a los lados */
+    display: flex;
+    flex-direction: column; /* Para que las secciones se apilen hacia abajo */
     margin: 0;
-    overflow-x: hidden;
 }
 
-body.no-scroll {
+
+/* --- LLUVIA ASCENDENTE LIMPIA --- */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    /* Esto evita el efecto persiana */
+    background-repeat: no-repeat;
+}
+
+.stars::after, .stars::before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Gotas: 1px ancho, 20px alto */
+    background-image: 
+        linear-gradient(to top, var(--cyan), transparent),
+        linear-gradient(to top, var(--white), transparent),
+        linear-gradient(to top, var(--cyan), transparent),
+        linear-gradient(to top, var(--white), transparent),
+        linear-gradient(to top, var(--orange), transparent);
+    
+    background-size: 1px 20px; 
+    background-repeat: no-repeat;
+}
+
+.stars::after {
+    /* Posiciones fijas para que no se amontonen */
+    background-position: 10% 90%, 30% 70%, 50% 50%, 70% 30%, 90% 10%;
+    animation: subirLluvia 2s linear infinite;
+}
+
+.stars::before {
+    background-position: 20% 10%, 40% 30%, 60% 80%, 80% 40%, 95% 60%;
+    opacity: 0.5;
+    animation: subirLluvia 3s linear infinite;
+}
+
+@keyframes subirLluvia {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+
+/* --- TEXTO --- */
+/* El contenedor de la animación inicial no debe empujar el contenido */
+.container {
+    position: fixed; /* Cambiado de grid a fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 10; /* Por encima de todo al principio */
+    pointer-events: none; /* Para que no bloquee clics después */
+}
+
+/* El Hero debe ser lo primero que se vea al hacer scroll */
+.hero-text {
+    position: relative;
+    height: 50vh; /* Fuerza a la sección a ocupar toda la pantalla */
+    width: 100%;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* El contenido (H2 y frase) quedará al centro */
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.hero-text.show {
+    opacity: 1;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+}
+
+.fade-in, .fade-in2 {
+    grid-area: 1 / 1;
+    opacity: 0;
+    animation: fadeInUpOut 2.75s ease-in-out forwards;
+}
+
+.fade-in {
+    color: var(--cyan);
+}
+
+.fade-in2 {
+    color: var(--orange);
+    animation-delay: 2.75s;
+}
+
+@keyframes fadeInUpOut {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    20%, 80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+
+
+.stars, .container {
+    animation: fadeOutFinal 0.1s forwards;
+    animation-delay: 6.2s; /* Ajustado al momento en que la línea pasa por el medio/arriba */
+}
+
+@keyframes fadeOutFinal {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.floating-dock {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%) translateY(120vh); /* Fuera de pantalla inicialmente */
+    background: rgba(42, 52, 68, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid var(--cyan);
+    padding: 10px 20px;
+    z-index: 100;
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: all;
+}
+
+.floating-dock.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.dock-list {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+}
+
+.dock-item {
+    width: 45px;
+    height: 45px;
+    background: var(--dark);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    color: var(--white);
+    pointer-events: auto;
+}
+
+.dock-item:hover {
+    background: var(--cyan);
+    transform: translateY(-5px);
+    color: var(--dark); /* El icono se oscurece al resaltar */
+}
+
+/* Tooltips */
+.dock-item::after {
+    content: attr(data-label);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(5, 15, 25, 0.9);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border: 1px solid var(--cyan);
+}
+
+.dock-item:hover::after {
+    opacity: 1;
+}
+
+.hero-content {
+    /* Quitamos pointer-events: auto de aquí porque ya lo maneja el padre .show */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h2 {
+    font-size: 8rem; /* Un poco más grande si está centrado */
+    font-weight: 900;
+    margin: 0;
+    font-size: clamp(3rem, 10vw, 8rem); /* Tamaño fluido */
+    font-weight: 900;
+    color: var(--white);
+    mix-blend-mode: difference; /* EL TRUCO: Invierte los colores de lo que hay detrás */
+    cursor: crosshair;
+    transition: letter-spacing 0.4s ease, transform 0.1s;
+
+
+}
+/* Al pasar el ratón por el HERO, creamos un flash de color */
+.hero-text::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--cyan);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.hero-text:hover::before {
+    opacity: 0.05; /* Un tinte muy sutil */
+}
+
+.hero-text:hover h2 {
+    letter-spacing: -5px; /* Se aprietan las letras, look brutalista */
+}
+
+
+#random-phrase {
+    margin-top: 15px; /* Espacio fijo bajo el h2 */
+    font-size: 1.1rem;
+    color: var(--orange);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+/* Al hacer hover en el contenedor, el texto sube y aparece */
+.hero-text:hover #random-phrase {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.scroll-wrapper {
+    margin-top: 60px; /* Espacio debajo de la frase aleatoria */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0.6;
+}
+
+.scroll-wrapper span {
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    color: var(--white);
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, var(--orange), transparent);
+    position: relative;
     overflow: hidden;
 }
 
-.facturacion-container, .ia-container {
+.scroll-line::after {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--cyan);
+    animation: scanLine 2s infinite;
+}
+
+@keyframes scanLine {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+.service-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark);
+    padding: 40px;
+}
+
+.clock-container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    max-width: 1000px;
+}
+
+/* El Reloj */
+.clock {
+    width: 300px;
+    height: 300px;
+    border: 2px solid var(--notsodark);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 184, 184, 0.1);
+}
+
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--cyan);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+/* Manecilla */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 4px;
+    height: 40%;
+    background: linear-gradient(to top, var(--cyan), transparent);
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 4px;
+    z-index: 3;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Marcadores */
+.marker {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--notsodark);
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+    cursor: pointer;
+    /* Cálculo matemático para posicionar en círculo */
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-150px) rotate(calc(-1 * var(--angle)));
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.marker:hover {
+    background: var(--orange);
+    box-shadow: 0 0 15px var(--orange);
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-160px) rotate(calc(-1 * var(--angle))) scale(1.2);
+}
+
+/* Caja de Información */
+.info-box {
+    flex: 1;
+    padding: 30px;
+    border-left: 2px solid var(--cyan);
+    background: rgba(42, 52, 68, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+#info-title {
+    color: var(--cyan);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#info-text {
+    line-height: 1.6;
+    color: var(--white);
+    font-size: 1.1rem;
+}
+
+
+
+
+
+
+
+.crm-container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.section-title {
+    text-align: center;
+    color: var(--white);
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--cyan);
+    display: inline-block;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+.crm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.crm-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 184, 184, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.crm-card:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 184, 184, 0.05);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 184, 184, 0.1);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--cyan);
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.crm-card:hover .card-icon {
+    color: var(--orange);
+    transform: scale(1.1);
+}
+
+.crm-card h3 {
+    color: var(--white);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.crm-card p {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+}
+
+/* Efecto de resplandor que sigue al ratón (opcional) */
+.card-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 184, 184, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+.tasks-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.task-card {
+    background: rgba(42, 52, 68, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--cyan);
+    padding: 25px;
+    width: 320px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.task-card:hover {
+    background: rgba(42, 52, 68, 0.6);
+    transform: scale(1.02);
+    border-left-color: var(--orange);
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+}
+
+.task-tag {
+    color: var(--cyan);
+    background: rgba(0, 184, 184, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.task-tag.warning { color: #ffcc00; background: rgba(255, 204, 0, 0.1); }
+.task-tag.success { color: #00ff88; background: rgba(0, 255, 136, 0.1); }
+
+.task-card h3 { color: var(--white); margin-bottom: 10px; }
+.task-card p { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-bottom: 20px; }
+
+/* Barras de progreso */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    /* Usamos la variable --w que inyectaremos por JS */
+    width: var(--w, 0%); 
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+    /* Esta transición hace que la barra se "llene" suavemente */
+    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1);
+}
+
+.progress-text { color: var(--cyan); font-weight: bold; font-size: 0.8rem; }
+
+
+
+
+
+
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.report-card {
+    background: rgba(255, 255, 255, 0.03); /* Un pelín más claro */
+    border: 1px solid rgba(0, 184, 184, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Para que las tarjetas que no tienen el hover no se vean muertas */
+.report-card h3 {
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.short-desc {
+    color: rgba(0, 184, 184, 0.7); /* Usamos el cian suave para la descripción */
+}
+
+/* Efecto al pasar el ratón: que brille el borde */
+.report-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0, 184, 184, 0.2);
+}
+.report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--cyan);
+    font-size: 1.5rem;
+}
+
+.report-id {
+    font-family: monospace;
+    font-size: 0.9rem;
+    background: rgba(0, 184, 184, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.report-card h3 { color: var(--white); margin-bottom: 10px; }
+.short-desc { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+
+/* La zona de explicación oculta */
+.report-details {
+    position: absolute;
+    bottom: -100%; /* Oculto abajo */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-top: 2px solid var(--cyan);
+}
+
+.report-card:hover .report-details {
+    bottom: 0; /* Sube al hacer hover */
+}
+
+.report-details ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.report-details li {
+    color: var(--white);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.report-details li i { color: var(--cyan); margin-right: 10px; }
+
+.report-badge {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Colores según estado */
+[data-status="completado"] .report-badge { background: #00ff88; color: #000; }
+[data-status="proceso"] .report-badge { background: var(--orange); color: #fff; }
+[data-status="revision"] .report-badge { background: #00d4ff; color: #fff; }
+
+
+
+
+
+
+
+
+
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+}
+
+.report-card.iteration {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 184, 184, 0.1);
+    padding: 40px 30px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* El número de iteración de fondo */
+.report-card.iteration::before {
+    content: attr(data-step);
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(0, 184, 184, 0.05);
+    z-index: 0;
+}
+
+.report-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--cyan);
+    background: rgba(0, 184, 184, 0.05);
+}
+
+.step-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--orange);
+    letter-spacing: 2px;
+    border: 1px solid var(--orange);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.iteration-details {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--cyan);
+}
+
+.iteration-details i {
+    margin-right: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+.facturacion-container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 20px;
 }
 
-.facturacion-layout, .ia-layout {
+.facturacion-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
@@ -33,59 +797,16 @@ body.no-scroll {
     margin-top: 40px;
 }
 
-.billing-flow, .ia-features {
+/* Reajuste de tu grid anterior para que sea en una sola columna dentro de su layout */
+.facturacion-container .billing-flow {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    margin-top: 0;
 }
 
-.flow-step, .ia-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(0, 184, 184, 0.1);
-    border-radius: 16px;
-    padding: 25px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.ia-card:hover {
-    border-color: var(--orange);
-    background: rgba(255, 124, 98, 0.05);
-    transform: translateX(5px);
-}
-
-.ia-icon {
-    font-size: 2rem;
-    color: var(--orange);
-}
-
-.invoice-side {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.features-pill-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.feature-pill {
-    background: rgba(0, 184, 184, 0.1);
-    border: 1px solid rgba(0, 184, 184, 0.2);
-    color: var(--cyan);
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.invoice-simulator, .ia-simulator {
+/* Simulador de Factura */
+.invoice-simulator {
     background: rgba(42, 52, 68, 0.2);
     border: 1px solid rgba(0, 184, 184, 0.1);
     border-radius: 20px;
@@ -134,14 +855,8 @@ body.no-scroll {
     margin-bottom: 15px;
 }
 
-.live-invoice .invoice-status {
-    background: rgba(0, 255, 136, 0.1);
-    color: #00ff88;
-    border: 1px solid #00ff88;
-    padding: 2px 6px;
-    font-size: 0.75rem;
-    border-radius: 4px;
-}
+.invoice-logo { font-weight: bold; color: var(--dark); }
+.invoice-status { background: #ffcc00; color: #000; padding: 2px 6px; font-size: 0.75rem; border-radius: 4px; }
 
 .invoice-row {
     display: grid;
@@ -162,29 +877,79 @@ body.no-scroll {
     padding-top: 15px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    font-size: 1.1rem;
 }
 
-.qr-placeholder {
+.invoice-footer strong { color: #00b8b8; }
+
+@media (max-width: 900px) {
+    .facturacion-layout { grid-template-columns: 1fr; gap: 40px; }
+}
+
+
+
+
+.ia-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ia-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.ia-features {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ia-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 184, 184, 0.1);
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    gap: 20px;
     align-items: center;
-    gap: 8px;
-    color: #666;
-    font-size: 0.75rem;
+    transition: all 0.3s ease;
 }
 
-.qr-placeholder i {
+.ia-card:hover {
+    border-color: var(--orange);
+    background: rgba(255, 124, 98, 0.05);
+    transform: translateX(5px);
+}
+
+.ia-icon {
     font-size: 2rem;
-    color: var(--dark);
+    color: var(--orange);
 }
 
-.total-box {
-    text-align: right;
-}
-
-.total-box strong {
-    color: var(--cyan);
+.ia-card h3 {
+    color: var(--white);
+    margin-bottom: 5px;
     font-size: 1.2rem;
+}
+
+.ia-card p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Simulador de IA */
+.ia-simulator {
+    background: rgba(42, 52, 68, 0.2);
+    border: 1px solid rgba(0, 184, 184, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
 }
 
 .audio-processor {
@@ -220,6 +985,7 @@ body.no-scroll {
     animation: pulseGlow 1.5s infinite;
 }
 
+/* Animación de ondas de sonido */
 .audio-waves {
     display: flex;
     align-items: center;
@@ -235,6 +1001,7 @@ body.no-scroll {
     animation: waveMotion 1.2s ease-in-out infinite alternate;
 }
 
+/* Variación de tiempos para naturalidad */
 .wave-bar:nth-child(2) { animation-delay: 0.2s; height: 25px; }
 .wave-bar:nth-child(3) { animation-delay: 0.4s; height: 35px; }
 .wave-bar:nth-child(4) { animation-delay: 0.1s; height: 20px; }
@@ -256,6 +1023,7 @@ body.no-scroll {
     margin-bottom: 15px;
 }
 
+.speaker { color: rgba(255, 255, 255, 0.8); }
 .ai-highlight { color: var(--cyan); margin-top: 8px; }
 
 .ai-summary-box h4 {
@@ -263,6 +1031,7 @@ body.no-scroll {
     font-size: 0.9rem;
     margin-bottom: 10px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .ai-summary-box ul {
@@ -279,6 +1048,8 @@ body.no-scroll {
     gap: 8px;
 }
 
+.ai-summary-box li i { color: var(--cyan); }
+
 @keyframes pulseGlow {
     0% { transform: scale(1); opacity: 0.5; }
     50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 10px var(--cyan); }
@@ -291,5 +1062,5 @@ body.no-scroll {
 }
 
 @media (max-width: 900px) {
-    .facturacion-layout, .ia-layout { grid-template-columns: 1fr; gap: 40px; }
+    .ia-layout { grid-template-columns: 1fr; gap: 40px; }
 }
