@@ -1,513 +1,357 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Batages Prueba</title>
+    <title>Batages</title>
     <link rel="stylesheet" href="style/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 
 <body>
+    <div class="container" >
 
-<nav class="navbar reveal delay-1">
-  <div class="nav-container">
-    <div class="logo">
-      <img src="resources/Recurso-3logotipobatages (1).svg" alt="Batages Logo">
-    </div>
-    
-    <ul class="nav-links">
-      <li class="dropdown">
-        <a href="#" class="nav-item">Funcionalidades <span class="arrow">▾</span></a>
+        <div class="stars"></div>
 
-        <div class="dropdown-wrapper">
-          <ul class="dropdown-content">
-            <li><a href="#">Control horario</a></li>
-            <li><a href="#">CRM</a></li>
-            <li><a href="#">Gestión de tareas</a></li>
-            <li><a href="#">Partes de trabajo</a></li>
-            <li><a href="#">Programa de Facturación</a></li>
-            <li><a href="#">Reuniones con IA</a></li>
-          </ul>
-        </div>
-      </li>
-      <li><a href="#" class="nav-item">Partners</a></li>
-      <li><a href="#" class="nav-item">Blog</a></li>
-      <li><a href="#" class="nav-item">Precios</a></li>
-      <li><a href="#" class="nav-item">Videos explicativos</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <a href="#" class="btn-reg">Regístrate</a>
-    </div>
-  </div>
-</nav>
-
-
-  <!-- ---------------------------------------------------- Text heroes ---------------------------------------------------------------- -->
-
-
-<section class="hero reveal delay-1">
-  <div id="blob"></div>
-
-  <div class="hero-content">
-    <h1>Una herramienta,<br><span style="color: var(--orange);">todas las soluciones</span></h1>
-    <p>Batages es el software de gestión en la nube que tiene todo lo que necesitas para gestionar tu empresa.</p>
-  </div>
-</section>
-
-<section class="mini-hero reveal delay-3">
-  <div class="mini-hero-container">
-    <div class="title-group">
-      <h2 class="mini-title">Más fácil,</h2>
-      <h2 class="mini-title">Más rápido,</h2>
-      <h2 class="mini-title">Más eficiente</h2>
-    </div>
-    <p class="mini-subtitle">Batages es el software de gestión en la nube que tiene todo lo que necesitas para gestionar tu empresa.</p>
-  </div>
-</section>
-
-
-  <!-- ---------------------------------------------------- Cartas ---------------------------------------------------------------- -->
-
-
-<section class="features-tabs reveal delay-4">
-
-<div class="tabs-container">
-  <button class="tab-btn active" data-id="control"><i class="fa-solid fa-clock"></i> Control horario</button>
-  <button class="tab-btn" data-id="facturacion"><i class="fa-solid fa-file-invoice-dollar"></i> Facturación</button>
-  <button class="tab-btn" data-id="crm"><i class="fa-solid fa-users"></i> CRM</button>
-  <button class="tab-btn" data-id="tareas"><i class="fa-solid fa-list-check"></i> Tareas</button>
-  <button class="tab-btn" data-id="partes"><i class="fa-solid fa-clipboard-list"></i> Partes de trabajo</button>
-  <button class="tab-btn" data-id="ia"><i class="fa-solid fa-robot"></i> Reuniones con IA</button>
-  <button class="tab-btn" data-id="kpi"><i class="fa-solid fa-chart-line"></i> KPIs</button>
-</div>
-
-  <div class="tabs-content">
-    
-
-    <div class="content active" id="control">
-      <div class="feature-grid">
-        <div class="feature-image">
-          <img src="resources/imagen-control.jpg" alt="Control horario">
-        </div>
-<div class="feature-text">
-  <h2>Control horario de trabajadores</h2>
-      <div class="stacked-container">
-        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
-          
-          <div class="click-indicator">
-            <span class="icon">👆</span>
-          </div>
-          
-          <h3>Auditoría inteligente</h3>
-          <p>Consulta toda la información necesaria sobre tus empleados en tiempo real.</p>
-        </div>
-
-        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
-          <h3>Registro de jornada laboral</h3>
-          <p>Registra la jornada laboral de los trabajadores de forma sencilla desde cualquier dispositivo.</p>
-        </div>
-
-        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
-          <h3>Notificaciones para fichar</h3>
-          <p>No te olvides de comenzar, ni cerrar tu jornada.</p>
-        </div>
-
-        <div class="info-box stack-card card-4" onclick="rotateCards(this)">
-          <h3>Fichaje con geolocalización</h3>
-          <p>Permite registrar la jornada laboral desde el móvil con geolocalización.</p>
-        </div>
-      </div>
-</div>
-      </div>
+        <h1 class="fade-in">Una herramienta</h1>
+        <h1 class="fade-in2">Todas las soluciones</h1>
     </div>
 
+    <nav class="floating-dock" id="main-nav" >
+        <ul class="dock-list">
+            <li class="dock-item" data-label="Inicio" data-target="home">
+                <i class="fas fa-home"></i>
+            </li>
 
-    <div class="content" id="facturacion">
-      <div class="feature-grid">
-        <div class="feature-image">
-          <img src="resources/imagen-facturacion.jpg" alt="Facturación">
-        </div>
-<div class="feature-text">
-  <h2>Programa de facturación</h2>
-  
-<div class="stacked-container">
-        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
-          
-          <div class="click-indicator">
-            <span class="icon">👆</span>
-          </div>
-          
-          <h3>Facturación con Verifactu</h3>
-          <p>Crea y gestiona facturas de forma rápida, cumpliendo con los requisitos de Verifactu.</p>
+            <li class="dock-item" data-label="Control horario" data-target="clock">
+                <i class="fas fa-user-clock"></i>
+            </li>
+            <li class="dock-item" data-label="CRM" data-target="crm">
+                <i class="fas fa-address-book"></i>
+            </li>
+            <li class="dock-item" data-label="Gestión de tareas" data-target="tareas">
+                <i class="fas fa-list-check"></i>
+            </li>
+            <li class="dock-item" data-label="Partes de trabajo" data-target="partes-trabajo">
+                <i class="fas fa-clipboard-list"></i>
+            </li>
+            <li class="dock-item" data-label="Facturación" data-target="facturacion">
+                <i class="fas fa-file-invoice-dollar"></i>
+            </li>
+            <li class="dock-item" data-label="Reuniones con IA" data-target="reuniones-ia">
+                <i class="fas fa-microchip"></i>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="hero-text" id="home">
+        <div class="hero-content">
+            <h2>BATAGES</h2>
+            <p id="random-phrase"></p>
         </div>
 
-        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
-          <h3>Escáner de facturas</h3>
-          <p>Escanea tus facturas y crea los movimientos en segundos</p>
+        <div class="scroll-wrapper">
+            <span>DESLIZA PARA EXPLORAR</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+
+    <section class="service-section" id="clock">
+    <div class="clock-container" >
+        <div class="clock">
+            <div class="hand" id="hand"></div>
+            <div class="marker" style="--angle: 0deg;" data-info="auditoria"></div>
+            <div class="marker" style="--angle: 90deg;" data-info="geo"></div>
+            <div class="marker" style="--angle: 180deg;" data-info="fichar"></div>
+            <div class="marker" style="--angle: 270deg;" data-info="jornada"></div>
+            <div class="center-dot"></div>
         </div>
 
-        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
-          <h3>Gestión de facturación</h3>
-          <p>En segundos, todo en un mismo lugar</p>
+        <div class="info-box">
+            <div id="info-content control-horario">
+                <h3 id="info-title">Control Horario</h3>
+                <p id="info-text">Pulsa en los marcadores del reloj para ver cómo Batages simplifica el registro de jornada.</p>
+            </div>
         </div>
-      </div>
-</div>
-      </div>
     </div>
-
-    <div class="content" id="crm">
-      <div class="feature-grid">
-        <div class="feature-image">
-          <img src="resources/imagen-crm.jpg" alt="CRM">
-        </div>
-<div class="feature-text">
-  <h2>CRM para empresas</h2>
-  
-<div class="stacked-container">
-        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
-          
-          <div class="click-indicator">
-            <span class="icon">👆</span>
-          </div>
-          
-          <h3>Ayuda inteligente</h3>
-          <p>Haz un resumen de todos los comentarios realizados, consulta rápidamente cualquier información.</p>
-        </div>
-
-        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
-          <h3>Gestión de clientes</h3>
-          <p>Organiza toda la información de tus clientes en un solo lugar.</p>
-        </div>
-
-        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
-          <h3>Notificaciones automáticas</h3>
-          <p>Recibe avisos para realizar seguimientos y no perder oportunidades de negocio.</p>
-        </div>
-
-        <div class="info-box stack-card card-4" onclick="rotateCards(this)">
-          <h3>Seguimiento de oportunidades</h3>
-          <p>Controla el estado de cada oportunidad comercial y mejora la gestión de ventas.</p>
-        </div>
-
-      </div>
-</div>
-      </div>
-    </div>
-
-
-    <div class="content" id="tareas">
-      <div class="feature-grid">
-        <div class="feature-image">
-          <img src="resources/imagen-tareas.jpg" alt="Tareas">
-        </div>
-<div class="feature-text">
-  <h2>Gestión de tareas para empresas</h2>
-  
-<div class="stacked-container">
-        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
-          
-          <div class="click-indicator">
-            <span class="icon">👆</span>
-          </div>
-          
-          <h3>Crear tareas con IA</h3>
-          <p>Crar tareas grabando un audio y la IA la transformará en una tarea</p>
-        </div>
-
-        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
-          <h3>Asignación de tareas al equipo</h3>
-          <p>Asigna tareas a cada miembro del equipo.</p>
-        </div>
-
-        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
-          <h3>Checklist de tareas</h3>
-          <p>Crea checklist de tareas para organizar procesos.</p>
-        </div>
-      </div>
-</div>
-      </div>
-    </div>
-
-    <div class="content" id="partes">
-      <div class="feature-grid">
-        <div class="feature-image">
-          <img src="resources/imagen-partes.jpg" alt="Partes de trabajo">
-        </div>
-<div class="feature-text">
-  <h2>Gestión de partes de trabajo</h2>
-  
-<div class="stacked-container">
-        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
-          
-          <div class="click-indicator">
-            <span class="icon">👆</span>
-          </div>
-          
-          <h3>Ayuda inteligente</h3>
-          <p>Crea automáticamente partes de trabajo con un simple audio, comentarios dentro del parte y sube fácilmente documentación</p>
-        </div>
-
-        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
-          <h3>Registro de trabajos realizados</h3>
-          <p>Los operarios pueden registrar el trabajo realizado directamente desde el móvil</p>
-        </div>
-
-        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
-          <h3>Firma digital del cliente</h3>
-          <p>Permite recoger la firma del cliente una vez finalizado el trabajo.</p>
-        </div>
-      </div>
-</div>
-      </div>
-    </div>
-
-    <div class="content" id="ia">
-      <div class="feature-grid">
-        <div class="feature-image">
-          <img src="resources/imagen-ia.jpg" alt="Reuniones con IA">
-        </div>
-<div class="feature-text">
-  <h2>Reuniones con IA</h2>
-  
-<div class="stacked-container">
-        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
-          
-          <div class="click-indicator">
-            <span class="icon">👆</span>
-          </div>
-          
-          <h3>Ayuda inteligente</h3>
-          <p>Consulta toda la información necesaria sobre tus reuniones.</p>
-        </div>
-
-        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
-          <h3>Transcripción automática de reuniones</h3>
-          <p>La IA transcribe automáticamente cada reunión para poder revisarlas cuando sea necesario</p>
-        </div>
-
-        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
-          <h3>Resumen automático de reuniones</h3>
-          <p>Obtén un resumen de los puntos clave tratados durante la reunión.</p>
-        </div>
-      </div>
-</div>
-      </div>
-    </div>
-
-    <div class="content" id="kpi">
-      <div class="feature-grid">
-        <div class="feature-image">
-          <img src="resources/imagen-kpi.jpg" alt="KPIs">
-        </div>
-<div class="feature-text">
-  <h2>KPIs y métricas empresariales</h2>
-  
-    <div class="stacked-container">
-        <div class="info-box stack-card card-1 active" onclick="rotateCards(this)">
-          
-          <div class="click-indicator">
-            <span class="icon">👆</span>
-          </div>
-          
-          <h3>Configuración a medida</h3>
-          <p>Consulta en un solo panel las métricas más importantes para tu empresa: ingresos, facturación, clientes activos y rendimiento del negocio, lo que tú desees medir.</p>
-        </div>
-
-        <div class="info-box stack-card card-2" onclick="rotateCards(this)">
-          <h3>Gráficas predictivas</h3>
-          <p>Analiza la evolución de tu empresa con gráficos y métricas que te ayudan a comprender qué áreas están funcionando mejor.</p>
-        </div>
-
-        <div class="info-box stack-card card-3" onclick="rotateCards(this)">
-          <h3>Aviso automatico del registro de datos</h3>
-          <p>Define los indicadores clave (KPIs) que realmente importan para tu empresa y monitoriza su evolución en tiempo real.</p>
-        </div>
-      </div>
-    </div>
-      </div>
-    </div>
-
-  </div> 
 </section>
 
 
-<!-- ------------------------------------------------------- FaQ -------------------------------------------------------------------------------- -->
-
-
-<div class="news-header-centered">
-  <span class="subtitle">FaQ</span>
-  <h2>Preguntas Frecuentes</h2>
-  <div class="header-line"></div>
-</div>
-
-
-<section class="faq-container">
-
-  <div class="faq-image">
-    <img src="resources/faq.jpg" alt="Soporte">
-  </div>
-
-  <div class="faq-content">
-    <div class="faq-item">
-      <button class="faq-question">¿Qué es Batages?</button>
-      <div class="faq-answer">
-        <p>Batages es un software de gestión empresarial que permite gestionar facturación online, clientes, control horario, partes de trabajo y reuniones con inteligencia artificial desde una sola plataforma.</p>
-      </div>
+<section class="service-section" id="crm">
+    <div class="crm-container">
+        <h2 class="section-title">CRM Inteligente</h2>
+        <div class="crm-grid">
+            <div class="crm-card" data-tilt>
+                <div class="card-icon"><i class="fas fa-address-card"></i></div>
+                <h3>Gestión 360º</h3>
+                <p>Todos los datos de tus clientes centralizados y accesibles en un clic.</p>
+                <div class="card-glow"></div>
+            </div>
+            <div class="crm-card" data-tilt>
+                <div class="card-icon"><i class="fas fa-funnel-dollar"></i></div>
+                <h3>Pipeline de Ventas</h3>
+                <p>Visualiza el progreso de tus oportunidades de negocio en tiempo real.</p>
+                <div class="card-glow"></div>
+            </div>
+            <div class="crm-card" data-tilt>
+                <div class="card-icon"><i class="fas fa-robot"></i></div>
+                <h3>Automatización</h3>
+                <p>Deja que la IA gestione los seguimientos y tareas repetitivas por ti.</p>
+                <div class="card-glow"></div>
+            </div>
+        </div>
     </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Qué exige la normativa de control horario?</button>
-      <div class="faq-answer">
-        <p>La normativa española exige que las empresas registren la jornada laboral de sus empleados, incluyendo el inicio, fin y pausas de la jornada. 
-          <br><br>
-          Además, obliga a conservar estos registros durante un período mínimo de 4 años, de manera que estén disponibles para inspecciones y para cumplir con las leyes laborales.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿El control horario es compatible con todos mis dispositivos?</button>
-      <div class="faq-answer">
-        <p>Batages Control Horario está preparado para adaptarse a dispositivos iOS, Android y a través de la web.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">¿Se puede usar desde el móvil?</button>
-      <div class="faq-answer">
-        <p>Sí, Batages puede utilizarse desde cualquier dispositivo con conexión a internet.</p>
-      </div>
-    </div>
-
-  </div>
 </section>
 
 
 
-<div class="news-header-centered">
-  <span class="subtitle">Actualidad</span>
-  <h2>Noticias</h2>
-  <div class="header-line"></div>
-</div>
-
-<section class="news-slider">
-  <div class="news-container">
-    <div class="news-track">
-
-      <div class="news-card">
-        <div class="news-image" style="background-image: url('resources/n1.jpg');"></div>
-        <div class="news-info">
-          <span class="news-tag">Facturación</span>
-          <h3>Generar factura electrónica gratis: cómo hacerlo paso a paso en 2026</h3>
-          <p>Aprende cómo generar factura electrónica gratis paso a paso, qué requisitos debe cumplir y cómo hacerlo fácilmente con un programa de facturación.</p>
+<section class="service-section" id="tareas">
+    <div class="tasks-container">
+        <h2 class="section-title">Gestión de Tareas</h2>
+        <div class="tasks-wrapper">
+            <div class="task-card" data-progress="75">
+                <div class="task-header">
+                    <span class="task-tag">Prioridad Alta</span>
+                    <span class="task-id">#BT-102</span>
+                </div>
+                <h3>Rediseño Interfaz</h3>
+                <p>Finalizar los prototipos de la nueva sección de analítica.</p>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                    <span class="progress-text">75%</span>
+                </div>
+            </div>
+            <div class="task-card" data-progress="40">
+                <div class="task-header">
+                    <span class="task-tag warning">En Proceso</span>
+                    <span class="task-id">#BT-105</span>
+                </div>
+                <h3>API Integration</h3>
+                <p>Conectar los módulos de facturación con el CRM central.</p>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                    <span class="progress-text">40%</span>
+                </div>
+            </div>
+            <div class="task-card" data-progress="90">
+                <div class="task-header">
+                    <span class="task-tag success">Revisión</span>
+                    <span class="task-id">#BT-110</span>
+                </div>
+                <h3>Seguridad SSL</h3>
+                <p>Verificación de certificados y cifrado de extremo a extremo.</p>
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                    <span class="progress-text">90%</span>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="news-card">
-        <div class="news-image" style="background-image: url('resources/n2.png');"></div>
-        <div class="news-info">
-          <span class="news-tag">Empresa</span>
-          <h3>Digitalizar la gestión de ausencias en empresas</h3>
-          <p>Descubre cómo digitalizar la gestión de ausencias en empresas, reducir errores y mejorar la organización del equipo con herramientas digitales.</p>
-        </div>
-      </div>
-
-      <div class="news-card">
-        <div class="news-image" style="background-image: url('resources/n3.jpg');"></div>
-        <div class="news-info">
-          <span class="news-tag">Empresa</span>
-          <h3>Bienvenida de la Atalaya a Batages</h3>
-          <p>Batages, anteriormente conocida como GestionPyme, ha sido seleccionada como una de las startups del programa La Atalaya de Extremadura Open Future.</p>
-        </div>
-      </div>
-      
-      <div class="news-card">
-        <div class="news-image" style="background-image: url('resources/n4.jpg');"></div>
-        <div class="news-info">
-          <span class="news-tag">Empresa</span>
-          <h3>Registro horario en teletrabajo: cómo cumplir la normativa y gestionar a tu equipo</h3>
-          <p>Descubre cómo gestionar el registro horario en teletrabajo, qué exige la ley y cómo pueden cumplir las empresas con la normativa.</p>
-        </div>
-      </div>
-  
     </div>
-
-    <button class="nav-btn prev" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
-    <button class="nav-btn next" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
-
-    <div class="news-dots" id="dots"></div>
-  </div>
-  
-  <div class="view-all-container">
-    <a href="#" class="view-all">Ver todas las noticias <i class="fa-solid fa-arrow-right"></i></a>
-  </div>
 </section>
 
 
-<!-- ---------------------------------------------- Footer -------------------------------------------------------------------------------- -->
 
-<section class="grid-imagenes">
-  <div class="img-card">
-    <img class="enisa" src="resources/LOGO-STARTUP.png" alt="1">
-  </div>
-  <div class="img-card">
-    <img src="resources/Mail-Attachment.png" alt="2">
-  </div>
-  <div class="img-card verifactu">
-    <img class="verifactu" src="resources/verifactu-01-1024x304.png" alt="3">
-  </div>
+
+<section class="service-section" id="partes-trabajo">
+    <div class="reports-container">
+        <h2 class="section-title">Flujo de Partes de Trabajo</h2>
+        <div class="reports-grid">
+            
+            <div class="report-card iteration" data-step="01">
+                <div class="report-header">
+                    <i class="fas fa-file-signature"></i>
+                    <span class="step-tag">Fase Inicial</span>
+                </div>
+                <h3>Apertura y Asignación</h3>
+                <p>El sistema genera el parte automáticamente. Aquí explicas cómo se vincula al cliente y al técnico disponible en tiempo real.</p>
+                <div class="iteration-details">
+                    <span><i class="fas fa-check-circle"></i> Registro de incidencia</span>
+                    <span><i class="fas fa-check-circle"></i> Notificación Push</span>
+                </div>
+            </div>
+
+            <div class="report-card iteration" data-step="02">
+                <div class="report-header">
+                    <i class="fas fa-tools"></i>
+                    <span class="step-tag">En Proceso</span>
+                </div>
+                <h3>Ejecución de Campo</h3>
+                <p>El técnico documenta el trabajo. Explica aquí el uso de fotos, materiales utilizados y la firma digital del cliente.</p>
+                <div class="iteration-details">
+                    <span><i class="fas fa-sync fa-spin"></i> Geolocalización activa</span>
+                    <span><i class="fas fa-camera"></i> Adjuntos multimedia</span>
+                </div>
+            </div>
+
+            <div class="report-card iteration" data-step="03">
+                <div class="report-header">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span class="step-tag">Finalizado</span>
+                </div>
+                <h3>Cierre y Facturación</h3>
+                <p>Validación final. Explica cómo el parte se convierte en factura y se envía el informe detallado al cliente por email.</p>
+                <div class="iteration-details">
+                    <span><i class="fas fa-file-pdf"></i> Generación de PDF</span>
+                    <span><i class="fas fa-share-nodes"></i> Sincronización ERP</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 
-<footer class="main-footer">
-  <div class="footer-container">
-    <div class="footer-column branding">
-      <img src="resources/Recurso-3logotipobatages (1).svg" alt="Batages Logo" class="footer-logo">
-      <p>Control horario<br>y mucho más para tu empresa</p>
-      <ul class="download-links">
-        <li><a href="#"> Descarga para iOS</a></li>
-        <li><a href="#">▶ Descarga en Google Play</a></li>
-        <li><a href="#">👥 Nuestro equipo</a></li>
-      </ul>
-    </div>
 
-    <div class="footer-column">
-      <h3>Funcionalidades</h3>
-      <ul class="footer-links">
-        <li><a href="#"><i class="fa-solid fa-clock"></i> Control horario</a></li>
-        <li><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> Facturación</a></li>
-        <li><a href="#"><i class="fa-solid fa-users"></i> CRM</a></li>
-        <li><a href="#"><i class="fa-solid fa-list-check"></i> Gestión de tareas</a></li>
-        <li><a href="#"><i class="fa-solid fa-clipboard-list"></i> Partes de trabajo</a></li>
-        <li><a href="#"><i class="fa-solid fa-robot"></i> Reuniones con IA</a></li>
-      </ul>
-    </div>
+<section class="service-section" id="facturacion">
+    <div class="facturacion-container">
+        <h2 class="section-title">Facturación Fácil</h2>
+        
+        <div class="facturacion-layout">
+            <div class="billing-flow">
+                <div class="flow-step" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="flow-icon"><i class="fas fa-file-invoice"></i></div>
+                    <div class="flow-content">
+                        <h3>Volcado y Presupuestos</h3>
+                        <p>Absorbe datos de los partes de trabajo o convierte <strong>presupuestos en facturas en un clic</strong>. Plantillas profesionales y personalizables.</p>
+                    </div>
+                </div>
 
-    <div class="footer-column">
-      <h3>Legal</h3>
-      <ul class="footer-links">
-        <li><a href="#">Aviso legal</a></li>
-        <li><a href="#">Cookies</a></li>
-        <li><a href="#">Privacidad</a></li>
-      </ul>
-    </div>
-  </div>
+                <div class="flow-step active" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="flow-content">
+                        <div class="flow-icon"><i class="fas fa-calculator"></i></div>
+                        <h3>Control de Ingresos y Gastos</h3>
+                        <p>Visualiza movimientos sin cobrar, filtra por estado o fecha, y gestiona tu <strong>historial de facturación y clientes</strong> en una sola pantalla.</p>
+                    </div>
+                </div>
 
-  <div class="footer-bottom">
-    <div class="bottom-content">
-      <span>© 2026. Todos los derechos reservados. Batatech S.L.</span>
-      <span class="bottom-logo">BATATECH</span>
-    </div>
-  </div>
-</footer>
+                <div class="flow-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="flow-content">
+                        <div class="flow-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h3>Facturación Electrónica y Verifactu</h3>
+                        <p>Software certificado y <strong>adaptado a Verifactu</strong>. Genera códigos QR correctos y facturas homologadas en la nube desde cualquier dispositivo.</p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="invoice-side">
+                <div class="features-pill-grid">
+                    <span class="feature-pill"><i class="fas fa-microphone"></i> Con un simple audio</span>
+                    <span class="feature-pill"><i class="fas fa-users"></i> Control de clientes 360º</span>
+                    <span class="feature-pill"><i class="fas fa-cloud"></i> Facturación en la nube</span>
+                </div>
+
+                <div class="invoice-simulator">
+                    <div class="simulator-controls">
+                        <button class="sim-btn active" data-hours="8" data-price="45" data-desc="Servicio Técnico Homologado Verifactu">Servicio Estándar</button>
+                        <button class="sim-btn" data-hours="15" data-price="60" data-desc="Consultoría ERP + Vinculación de Clientes">Proyecto Complejo</button>
+                    </div>
+                    <div class="live-invoice">
+                        <div class="invoice-header">
+                            <span class="invoice-logo">BATAGES</span>
+                            <span class="invoice-status"><i class="fas fa-check-circle"></i> VERIFACTU READY</span>
+                        </div>
+                        <div class="invoice-body">
+                            <div class="invoice-row header">
+                                <span>Concepto</span>
+                                <span>Horas</span>
+                                <span>Precio</span>
+                                <span>Total</span>
+                            </div>
+                            <div class="invoice-row item">
+                                <span id="inv-desc">Servicio Técnico Homologado Verifactu</span>
+                                <span id="inv-hours">8h</span>
+                                <span id="inv-price">45€</span>
+                                <span id="inv-subtotal">360€</span>
+                            </div>
+                        </div>
+                        <div class="invoice-footer">
+                            <div class="qr-placeholder">
+                                <i class="fas fa-qrcode"></i>
+                                <span>QR Certificado</span>
+                            </div>
+                            <div class="total-box">
+                                <span>Total (con IVA):</span>
+                                <strong id="inv-total">435.60€</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="service-section" id="reuniones-ia">
+    <div class="ia-container">
+        <h2 class="section-title">Reuniones con IA</h2>
+        
+        <div class="ia-layout">
+            <div class="ia-features">
+                <div class="ia-card">
+                    <div class="ia-icon"><i class="fas fa-microphone-lines"></i></div>
+                    <h3>Grabación y Transcripción</h3>
+                    <p>El sistema graba el audio de tus reuniones y lo convierte a texto en tiempo real con separación de interlocutores.</p>
+                </div>
+                <div class="ia-card">
+                    <div class="ia-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                    <h3>Resúmenes Inteligentes</h3>
+                    <p>Extrae automáticamente los puntos clave, decisiones tomadas y tareas pendientes sin que nadie tenga que tomar notas.</p>
+                </div>
+                <div class="ia-card">
+                    <div class="ia-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Acciones en un Clic</h3>
+                    <p>Vincula los acuerdos de la reunión directamente al CRM o crea tareas automáticas asignadas a tu equipo.</p>
+                </div>
+            </div>
+
+            <div class="ia-simulator">
+                <div class="audio-processor">
+                    <div class="status-bar">
+                        <span class="status-dot pulsed"></span>
+                        <span id="ai-status">PROCESANDO AUDIO...</span>
+                    </div>
+                    <div class="audio-waves">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+                </div>
+
+                <div class="live-transcription">
+                    <div class="transcript-box">
+                        <p class="speaker"><strong>Técnico:</strong> "Hemos terminado la instalación del módulo Verifactu en el cliente."</p>
+                        <p class="speaker ai-highlight"><strong>IA Batages:</strong> <i class="fas fa-robot"></i> Creando tarea: 'Revisión Certificado SSL' para mañana.</p>
+                    </div>
+                    <div class="ai-summary-box">
+                        <h4><i class="fas fa-list-check"></i> Notas generadas por IA:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Hito alcanzado: Módulo de facturación completado.</li>
+                            <li><i class="fas fa-arrow-right"></i> Siguiente paso: Automatizar el volcado de partes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 <script src="scripts/main.js"></script>
+
 </body>
 </html>
